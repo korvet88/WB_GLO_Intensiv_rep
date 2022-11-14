@@ -6,16 +6,26 @@ const getGoods = function () {
                 .then((res) => res.json())
                 .then((data) =>{
                     console.log(data);
-                })
+                });
     }
     
     links.forEach( (link) => {
         link.addEventListener("click", (event) => {
             event.preventDefault();
-            console.log('Cunt');
+            getData();
         })
     })
+
+    localStorage.setItem('goods', JSON.stringify([1,2,3,4,5]))
+
+    const goods = JSON.parse(localStorage.getItem('goods'));
+    console.log(goods);
+
+    console.log(localStorage);
+
+    localStorage.removeItem('goods')
+
+    console.log(localStorage);
 }
 
 getGoods();
-
